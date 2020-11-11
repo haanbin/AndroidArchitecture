@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AndroidArchitecture</string>
+    <string name="str_show_random_user">Show RandomUser</string>
+    <string name="str_show_user_list">Show UserList</string>
+    <string name="title_activity_random">RandomActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_users">UsersActivity</string>
+</resources>

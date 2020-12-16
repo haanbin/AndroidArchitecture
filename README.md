@@ -4,7 +4,7 @@
 ---
 - AAC ViewModel
 - LiveData
-- DatabindingAdapter
+- Databinding
 - RxKoltin
 - Retrofit2
 - Glide

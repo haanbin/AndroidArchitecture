@@ -59,4 +59,8 @@ class RandomViewModel(
         )
     }
 
+    fun onRefresh(){
+        loadRandomUser()
+    }
+
 }

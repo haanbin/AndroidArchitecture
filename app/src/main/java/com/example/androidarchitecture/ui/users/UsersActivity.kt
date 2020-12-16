@@ -1,7 +1,7 @@
 package com.example.androidarchitecture.ui.users
 
-import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityUsersBinding
 import com.example.androidarchitecture.ext.obtainViewModel
@@ -12,9 +12,10 @@ class UsersActivity : BaseActivity<ActivityUsersBinding, UsersViewModel>(R.layou
     override val viewModel: UsersViewModel
         get() = obtainViewModel(UsersViewModel::class.java)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.viewModel = viewModel
+    override val viewModelVariable: Int
+        get() = BR.viewModel
+
+    override fun start() {
         onObserve()
     }
 

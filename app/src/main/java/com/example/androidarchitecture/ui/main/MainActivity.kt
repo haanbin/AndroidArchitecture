@@ -3,6 +3,7 @@ package com.example.androidarchitecture.ui.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.data.api.RetrofitClient
 import com.example.androidarchitecture.data.entities.Result
@@ -17,10 +18,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     override val viewModel: MainViewModel
         get() = obtainViewModel(MainViewModel::class.java)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.viewModel = viewModel
+    override val viewModelVariable: Int
+        get() = BR.viewModel
+
+    override fun start() {
         onObserve()
+
     }
 
     private fun onObserve() {

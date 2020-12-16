@@ -1,7 +1,7 @@
 package com.example.androidarchitecture.ui.random
 
-import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityRandomBinding
 import com.example.androidarchitecture.ext.obtainViewModel
@@ -13,9 +13,10 @@ class RandomActivity :
     override val viewModel: RandomViewModel
         get() = obtainViewModel(RandomViewModel::class.java)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.viewModel = viewModel
+    override val viewModelVariable: Int
+        get() = BR.viewModel
+
+    override fun start() {
         onObserve()
     }
 

@@ -14,15 +14,22 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
 
     protected lateinit var binding: B
     abstract val viewModel: VM
+    abstract val viewModelVariable: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutRes)
-        binding.lifecycleOwner = this
+        with(binding) {
+            lifecycleOwner = this@BaseActivity
+            setVariable(viewModelVariable, viewModel)
+        }
+        start()
     }
 
 
     fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
+
+    abstract fun start()
 }

@@ -9,4 +9,5 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_users">UsersActivity</string>
+    <string name="str_refresh">새로고침</string>
 </resources>

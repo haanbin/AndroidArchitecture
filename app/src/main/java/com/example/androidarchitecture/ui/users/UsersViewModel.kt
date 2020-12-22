@@ -1,6 +1,7 @@
 package com.example.androidarchitecture.ui.users
 
 import android.util.Log
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.androidarchitecture.Event
@@ -12,7 +13,7 @@ import com.example.androidarchitecture.ui.random.RandomViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 
-class UsersViewModel(
+class UsersViewModel @ViewModelInject constructor(
     private val appRepository: AppRepository
 ) : BaseViewModel() {
 

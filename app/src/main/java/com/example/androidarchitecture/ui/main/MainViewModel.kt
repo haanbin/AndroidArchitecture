@@ -1,14 +1,13 @@
 package com.example.androidarchitecture.ui.main
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.source.AppRepository
 import com.example.androidarchitecture.ui.base.BaseViewModel
 
-class MainViewModel(
-    private val appRepository: AppRepository
-) : BaseViewModel() {
+class MainViewModel @ViewModelInject constructor() : BaseViewModel() {
 
     private val queryMap = HashMap<String, String>()
 

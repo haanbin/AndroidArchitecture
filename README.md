@@ -8,3 +8,4 @@
 - RxKotlin
 - Retrofit2
 - Glide
+- Hilt

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion 29
@@ -65,6 +66,18 @@ dependencies {
     // Image
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //hilt for viewModel
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
+    // When using Kotlin.
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
+
+    //ktx
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
 
     // Unit Test
     testImplementation 'junit:junit:4.13'

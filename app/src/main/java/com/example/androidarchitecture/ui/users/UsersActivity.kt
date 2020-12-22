@@ -1,16 +1,17 @@
 package com.example.androidarchitecture.ui.users
 
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityUsersBinding
-import com.example.androidarchitecture.ext.obtainViewModel
 import com.example.androidarchitecture.ui.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UsersActivity : BaseActivity<ActivityUsersBinding, UsersViewModel>(R.layout.activity_users) {
 
-    override val viewModel: UsersViewModel
-        get() = obtainViewModel(UsersViewModel::class.java)
+    override val viewModel: UsersViewModel by viewModels()
 
     override val viewModelVariable: Int
         get() = BR.viewModel

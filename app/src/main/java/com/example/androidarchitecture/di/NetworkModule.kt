@@ -1,28 +1,37 @@
-package com.example.androidarchitecture.data.api
+package com.example.androidarchitecture.di
 
+import com.example.androidarchitecture.data.api.RetrofitService
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
-object RetrofitClient {
+@InstallIn(ApplicationComponent::class)
+@Module
+object NetworkModule {
 
-    val retrofitService: RetrofitService
-        get() = getRetrofit()
-
-    private fun getRetrofit(): RetrofitService {
+    @Singleton
+    @Provides
+    fun provideRetrofitService(): RetrofitService {
         return Retrofit.Builder()
             .baseUrl("https://randomuser.me/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .client(getOkHttpClient())
+            .client(provideOkHttpClient())
             .build()
             .create(RetrofitService::class.java)
     }
 
-    private fun getOkHttpClient(): OkHttpClient {
+    @Singleton
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()

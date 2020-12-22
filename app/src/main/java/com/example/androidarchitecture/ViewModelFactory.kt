@@ -16,16 +16,13 @@
 package com.example.androidarchitecture
 
 import android.annotation.SuppressLint
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.androidarchitecture.data.api.RetrofitClient
 import com.example.androidarchitecture.data.source.AppRepository
 import com.example.androidarchitecture.data.source.local.LocalDataSource
 import com.example.androidarchitecture.data.source.remote.RemoteDataSource
 import com.example.androidarchitecture.ui.main.MainViewModel
 import com.example.androidarchitecture.ui.random.RandomViewModel
-import com.example.androidarchitecture.ui.users.UsersActivity
 import com.example.androidarchitecture.ui.users.UsersViewModel
 
 
@@ -44,7 +41,7 @@ class ViewModelFactory private constructor(
         with(modelClass) {
             when {
                 isAssignableFrom(MainViewModel::class.java) ->
-                    MainViewModel(appRepository)
+                    MainViewModel()
                 isAssignableFrom(RandomViewModel::class.java) ->
                     RandomViewModel(appRepository)
                 isAssignableFrom(UsersViewModel::class.java) ->

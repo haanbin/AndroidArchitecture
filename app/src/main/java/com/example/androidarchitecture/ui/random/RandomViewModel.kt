@@ -1,6 +1,7 @@
 package com.example.androidarchitecture.ui.random
 
 import android.util.Log
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.androidarchitecture.Event
@@ -11,7 +12,7 @@ import com.example.androidarchitecture.ui.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 
-class RandomViewModel(
+class RandomViewModel @ViewModelInject constructor(
     private val appRepository: AppRepository
 ) : BaseViewModel() {
 
@@ -25,8 +26,11 @@ class RandomViewModel(
     val toastMessage: LiveData<Event<String>>
         get() = _toastMessage
 
-
     fun start() {
+        loadRandomUser()
+    }
+
+    fun onRefresh(){
         loadRandomUser()
     }
 
@@ -57,10 +61,6 @@ class RandomViewModel(
             age,
             location
         )
-    }
-
-    fun onRefresh(){
-        loadRandomUser()
     }
 
 }

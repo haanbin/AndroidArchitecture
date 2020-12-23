@@ -21,7 +21,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofitService(): RetrofitService {
         return Retrofit.Builder()
-            .baseUrl("https://randomuser.me/")
+            .baseUrl("https://openapi.naver.com/v1/search/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(provideOkHttpClient())

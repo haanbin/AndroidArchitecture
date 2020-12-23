@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface AppDataSource {
 
-    fun getRandomUser(queryMap: Map<String, String>) : Single<RandomUser>
+    fun getRandomUser(queryMap: Map<String, String>, url: String) : Single<RandomUser>
 
 }

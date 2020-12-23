@@ -19,8 +19,8 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidarchitecture.data.source.AppRepository
-import com.example.androidarchitecture.data.source.local.LocalDataSource
-import com.example.androidarchitecture.data.source.remote.RemoteDataSource
+import com.example.androidarchitecture.data.source.local.LocalDataSourceImpl
+import com.example.androidarchitecture.data.source.remote.RemoteDataSourceImpl
 import com.example.androidarchitecture.ui.main.MainViewModel
 import com.example.androidarchitecture.ui.random.RandomViewModel
 import com.example.androidarchitecture.ui.users.UsersViewModel
@@ -61,8 +61,8 @@ class ViewModelFactory private constructor(
             INSTANCE ?: synchronized(ViewModelFactory::class.java) {
                 INSTANCE ?: ViewModelFactory(
                     AppRepository.getInstance(
-                        RemoteDataSource(),
-                        LocalDataSource()
+                        RemoteDataSourceImpl(),
+                        LocalDataSourceImpl()
                     )
                 )
                     .also { INSTANCE = it }

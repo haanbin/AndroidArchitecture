@@ -14,6 +14,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        def clientId = "clientId"
+        def clientSecret = "clientSecret"
+        def randomUrl = "randomUrl"
+        buildConfigField "String", clientId, '"aE4MP151wVUcCypxfPmT"'
+        buildConfigField "String", clientSecret, '"lhMe6_eVyS"'
+        buildConfigField "String", randomUrl, '"https://randomuser.me/api/"'
     }
 
     buildTypes {

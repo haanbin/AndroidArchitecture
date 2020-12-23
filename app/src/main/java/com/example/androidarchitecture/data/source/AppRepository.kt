@@ -1,22 +1,20 @@
 package com.example.androidarchitecture.data.source
 
 import com.example.androidarchitecture.data.entities.RandomUser
-import com.example.androidarchitecture.data.source.local.LocalDataSource
-import com.example.androidarchitecture.data.source.remote.RemoteDataSource
-import com.example.androidarchitecture.di.Local
-import com.example.androidarchitecture.di.Remote
+import com.example.androidarchitecture.data.source.local.LocalDataSourceImpl
+import com.example.androidarchitecture.data.source.remote.RemoteDataSourceImpl
 import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class AppRepository @Inject constructor(
-    private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource
+    private val remoteDataSourceImpl: RemoteDataSourceImpl,
+    private val localDataSourceImpl: LocalDataSourceImpl
 ) : AppDataSource {
 
-    override fun getRandomUser(queryMap: Map<String, String>): Single<RandomUser> {
-        return remoteDataSource.getRandomUser(queryMap)
+    override fun getRandomUser(queryMap: Map<String, String>, url: String): Single<RandomUser> {
+        return remoteDataSourceImpl.getRandomUser(queryMap, url)
     }
 
     companion object {
@@ -25,10 +23,10 @@ class AppRepository @Inject constructor(
 
         @JvmStatic
         fun getInstance(
-            remoteDataSource: RemoteDataSource,
-            localDataSource: LocalDataSource
+            remoteDataSourceImpl: RemoteDataSourceImpl,
+            localDataSourceImpl: LocalDataSourceImpl
         ) = INSTANCE ?: synchronized(AppRepository::class.java) {
-            INSTANCE ?: AppRepository(remoteDataSource, localDataSource)
+            INSTANCE ?: AppRepository(remoteDataSourceImpl, localDataSourceImpl)
                 .also { INSTANCE = it }
         }
     }

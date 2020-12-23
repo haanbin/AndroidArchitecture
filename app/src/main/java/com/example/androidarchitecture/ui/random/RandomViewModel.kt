@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.androidarchitecture.BuildConfig
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.Result
 import com.example.androidarchitecture.data.entities.UserFormat
@@ -26,6 +27,8 @@ class RandomViewModel @ViewModelInject constructor(
     val toastMessage: LiveData<Event<String>>
         get() = _toastMessage
 
+    private val randomUrl = BuildConfig.randomUrl
+
     fun start() {
         loadRandomUser()
     }
@@ -35,7 +38,7 @@ class RandomViewModel @ViewModelInject constructor(
     }
 
     private fun loadRandomUser() {
-        appRepository.getRandomUser(queryMap)
+        appRepository.getRandomUser(queryMap, randomUrl)
             .map {
                 getUserFormat(it.results[0])
             }

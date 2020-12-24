@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.moviesearch.MovieSearchActivity"></activity>
+        <activity android:name=".ui.randommain.RandomMainActivity" />
         <activity android:name=".ui.home.HomeActivity" />
         <activity
-            android:name=".ui.randommain.RandomMainActivity"
+            android:name=".ui.moviesearch.MovieSearchActivity"
             android:label="@string/title_activity_users">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

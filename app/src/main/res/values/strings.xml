@@ -13,4 +13,5 @@
     <string name="str_movie_search">Movie Search</string>
     <string name="str_random_user">Random User</string>
     <string name="str_search">검색</string>
+    <string name="str_search_hint">검색어를 입력해주세요</string>
 </resources>

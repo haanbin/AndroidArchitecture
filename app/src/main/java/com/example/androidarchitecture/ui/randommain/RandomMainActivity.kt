@@ -1,4 +1,4 @@
-package com.example.androidarchitecture.ui.main
+package com.example.androidarchitecture.ui.randommain
 
 import android.content.Intent
 import androidx.activity.viewModels
@@ -12,9 +12,9 @@ import com.example.androidarchitecture.ui.users.UsersActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {
+class RandomMainActivity : BaseActivity<ActivityMainBinding, RandomMainViewModel>(R.layout.activity_main) {
 
-    override val viewModel: MainViewModel by viewModels()
+    override val viewModel: RandomMainViewModel by viewModels()
 
     override val viewModelVariable: Int
         get() = BR.viewModel
@@ -25,12 +25,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
 
     private fun onObserve() {
         with(viewModel) {
-            randomEvent.observe(this@MainActivity, Observer {
+            randomEvent.observe(this@RandomMainActivity, Observer {
                 it.getContentIfNotHandled()?.let {
                     openRandom()
                 }
             })
-            usersEvent.observe(this@MainActivity, Observer {
+            usersEvent.observe(this@RandomMainActivity, Observer {
                 it.getContentIfNotHandled()?.let {
                     openUsers()
                 }

@@ -21,7 +21,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.androidarchitecture.data.source.AppRepository
 import com.example.androidarchitecture.data.source.local.LocalDataSourceImpl
 import com.example.androidarchitecture.data.source.remote.RemoteDataSourceImpl
-import com.example.androidarchitecture.ui.main.MainViewModel
+import com.example.androidarchitecture.ui.randommain.RandomMainViewModel
 import com.example.androidarchitecture.ui.random.RandomViewModel
 import com.example.androidarchitecture.ui.users.UsersViewModel
 
@@ -40,8 +40,8 @@ class ViewModelFactory private constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>) =
         with(modelClass) {
             when {
-                isAssignableFrom(MainViewModel::class.java) ->
-                    MainViewModel()
+                isAssignableFrom(RandomMainViewModel::class.java) ->
+                    RandomMainViewModel()
                 isAssignableFrom(RandomViewModel::class.java) ->
                     RandomViewModel(appRepository)
                 isAssignableFrom(UsersViewModel::class.java) ->

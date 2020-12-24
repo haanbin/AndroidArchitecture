@@ -18,8 +18,8 @@ interface RetrofitService {
     fun getMovie(
         @HeaderMap
         headerMap: Map<String, String>,
-        @Url
-        url: String
+        @QueryMap
+        queryMap: Map<String, String>
     ): Single<RandomUser>
 
 }

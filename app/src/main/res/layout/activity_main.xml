@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.androidarchitecture.ui.main.MainViewModel" />
+            type="com.example.androidarchitecture.ui.randommain.RandomMainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainActivity">
+        tools:context=".ui.randommain.RandomMainActivity">
 
         <TextView
             android:id="@+id/textView_main_random_user_single"

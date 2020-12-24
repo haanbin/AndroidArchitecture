@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.randommain.RandomMainActivity" />
-        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.moviesearch.MovieSearchActivity" />
         <activity
-            android:name=".ui.moviesearch.MovieSearchActivity"
+            android:name=".ui.home.HomeActivity"
             android:label="@string/title_activity_users">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.moviesearch.MovieSearchActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.randommain.RandomMainActivity"
             android:label="@string/title_activity_users">
@@ -23,8 +25,8 @@
         </activity>
         <activity
             android:name=".ui.random.RandomActivity"
-            android:label="@string/title_activity_random"></activity>
-        <activity android:name=".ui.users.UsersActivity"></activity>
+            android:label="@string/title_activity_random" />
+        <activity android:name=".ui.users.UsersActivity" />
     </application>
 
 </manifest>

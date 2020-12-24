@@ -7,57 +7,56 @@
 
         <variable
             name="viewModel"
-            type="com.example.androidarchitecture.ui.randommain.RandomMainViewModel" />
+            type="com.example.androidarchitecture.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.randommain.RandomMainActivity">
+        tools:context=".ui.home.HomeActivity">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView_main_random_user_single"
+            android:id="@+id/cardView_home_random"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toTopOf="@id/cardView_main_random_user_list"
+            app:layout_constraintBottom_toTopOf="@id/cardView_home_search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView_main_random_user_single"
+                android:id="@+id/textView_home_random"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.randomCall()}"
+                android:onClick="@{() -> viewModel.onRandomClick()}"
                 android:padding="20dp"
-                android:text="@string/str_show_random_user" />
+                android:text="@string/str_random_user" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView_main_random_user_list"
+            android:id="@+id/cardView_home_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView_main_random_user_single">
+            app:layout_constraintTop_toBottomOf="@+id/cardView_home_random">
 
             <TextView
-                android:id="@+id/textView_main_random_user_list"
+                android:id="@+id/textView_home_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.usersCall()}"
+                android:onClick="@{() -> viewModel.onMovieSearchClick()}"
                 android:padding="20dp"
-                android:text="@string/str_show_user_list"
+                android:text="@string/str_movie_search"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

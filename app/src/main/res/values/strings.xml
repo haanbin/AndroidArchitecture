@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AndroidArchitecture</string>
     <string name="str_show_random_user">Show RandomUser</string>
-    <string name="str_show_user_list">Show UserList</string>
+    <string name="str_show_user_list">Show RandomUserList</string>
     <string name="title_activity_random">RandomActivity</string>
     <!--
     This string is used for square devices and overridden by hello_world in
@@ -10,4 +10,7 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_users">UsersActivity</string>
     <string name="str_refresh">새로고침</string>
+    <string name="str_movie_search">Movie Search</string>
+    <string name="str_random_user">Random User</string>
+    <string name="str_search">검색</string>
 </resources>

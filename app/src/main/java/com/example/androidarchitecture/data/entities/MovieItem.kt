@@ -1,6 +1,6 @@
 package com.example.androidarchitecture.data.entities
 
-data class Item(
+data class MovieItem(
     val actor: String,
     val director: String,
     val image: String,

@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel" />
@@ -36,6 +38,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:text="@={viewModel.searchText}"
                     android:hint="@string/str_search_hint"
                     android:paddingHorizontal="10dp" />
 
@@ -43,6 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:onClick="@{() -> viewModel.searchClicked()}"
                     android:paddingHorizontal="15dp"
                     android:text="@string/str_search"
                     android:textColor="@color/colorBlack" />
@@ -59,8 +63,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:setMovieData="@{viewModel.movieItems}"
+            app:setMovieRecyclerViewAttr="@{viewModel}"
             tools:itemCount="5"
             tools:listitem="@layout/item_movie" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

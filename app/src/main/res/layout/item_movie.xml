@@ -4,18 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel" />
+        <variable
+            name="model"
+            type="com.example.androidarchitecture.data.entities.MovieItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onMovieItemClicked(model.link)}"
         android:layout_marginBottom="10dp">
 
         <ImageView
             android:id="@+id/imageView_item_movie"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            app:imageUrl="@{model.image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            app:htmlText="@{model.title}"
             app:layout_constraintBottom_toTopOf="@id/textView_item_movie_director"
             app:layout_constraintStart_toEndOf="@id/imageView_item_movie"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,9 +40,11 @@
 
         <TextView
             android:id="@+id/textView_item_movie_sub_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="@{model.subtitle}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textView_item_movie_title"
             app:layout_constraintTop_toTopOf="@id/textView_item_movie_title"
             tools:text="가나다" />
@@ -45,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:text="@{model.director}"
             app:layout_constraintBottom_toTopOf="@id/textView_item_movie_userRating"
             app:layout_constraintStart_toEndOf="@id/imageView_item_movie"
             app:layout_constraintTop_toBottomOf="@id/textView_item_movie_title"
@@ -52,9 +63,11 @@
 
         <TextView
             android:id="@+id/textView_item_movie_actor"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="@{model.actor}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textView_item_movie_director"
             app:layout_constraintTop_toTopOf="@id/textView_item_movie_director"
             tools:text="송강호" />
@@ -65,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:text="@{model.userRating}"
             app:layout_constraintBottom_toTopOf="@id/textView_item_movie_pubDate"
             app:layout_constraintStart_toEndOf="@id/imageView_item_movie"
             app:layout_constraintTop_toBottomOf="@id/textView_item_movie_director"
@@ -76,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:text="@{model.pubDate}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView_item_movie"
             app:layout_constraintTop_toBottomOf="@id/textView_item_movie_userRating"

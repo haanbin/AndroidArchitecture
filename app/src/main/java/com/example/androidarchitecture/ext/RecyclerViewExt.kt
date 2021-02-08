@@ -10,6 +10,7 @@ import com.example.androidarchitecture.ui.moviesearch.MovieAdapter
 import com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel
 import com.example.androidarchitecture.ui.users.UserAdapter
 import com.example.androidarchitecture.ui.users.UsersViewModel
+import com.example.androidarchitecture.util.EndlessPageRecyclerViewScrollListener
 import com.example.androidarchitecture.util.EndlessRecyclerViewScrollListener
 
 @BindingAdapter("setUserRecyclerViewAttr")
@@ -19,11 +20,28 @@ fun RecyclerView.setUserRecyclerViewAttr(viewModel: BaseViewModel) {
         adapter = UserAdapter(viewModel)
         this.layoutManager = layoutManager
         addOnScrollListener(object :
-            EndlessRecyclerViewScrollListener(layoutManager) {
+            EndlessPageRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
-                viewModel.loadMore(page)
+                viewModel.loadMore()
             }
         })
+    }
+}
+
+@BindingAdapter("setUserRecyclerViewAttrTest")
+fun RecyclerView.setUserRecyclerViewAttrTest(viewModel: BaseViewModel) {
+    if (viewModel is UsersViewModel) {
+        val layoutManager = LinearLayoutManager(context)
+        adapter = UserAdapter(viewModel)
+        this.layoutManager = layoutManager
+        addOnScrollListener(
+            EndlessRecyclerViewScrollListener(
+                layoutManager,
+                8,
+                viewModel.loadMoreTest
+            )
+        )
+
     }
 }
 
@@ -40,7 +58,7 @@ fun RecyclerView.setMovieRecyclerViewAttr(viewModel: BaseViewModel) {
         adapter = MovieAdapter(viewModel)
         this.layoutManager = layoutManager
         addOnScrollListener(object :
-            EndlessRecyclerViewScrollListener(layoutManager) {
+            EndlessPageRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
                 viewModel.loadMore()
             }

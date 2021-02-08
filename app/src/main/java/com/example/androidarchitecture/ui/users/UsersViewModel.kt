@@ -41,8 +41,19 @@ class UsersViewModel @ViewModelInject constructor(
         loadRandomUser()
     }
 
-    fun loadMore(page: Int) {
-        queryMap["page"] = page.toString()
+    val loadMoreTest = {
+        queryMap["page"] = ((queryMap["page"]?.toInt() ?: 0) + 1).toString()
+        loadRandomUser()
+    }
+
+    fun loadMore() {
+        queryMap["page"] = (queryMap["page"]?.toInt() ?: 0 + 1).toString()
+        loadRandomUser()
+    }
+
+    fun clearList(){
+        _userFormats.value = listOf()
+        queryMap["page"] = "1"
         loadRandomUser()
     }
 
@@ -56,7 +67,9 @@ class UsersViewModel @ViewModelInject constructor(
             }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                _userFormats.value = it
+                val itemList = (_userFormats.value ?: listOf()).toMutableList()
+                itemList.addAll(it)
+                _userFormats.value = itemList
             }, {
                 _toastMessage.value = Event(it.message.toString())
                 Log.e(RandomViewModel::javaClass.javaClass.name, it.message.toString())

@@ -28,9 +28,7 @@ class UserAdapter(private val viewModel: UsersViewModel) :
 
 
     fun setData(newList: List<UserFormat>) {
-        val oldList = currentList.toMutableList()
-        oldList.addAll(newList)
-        submitList(oldList)
+        submitList(newList)
     }
 
     class UserViewHolder(private val binding: ItemUserBinding) :

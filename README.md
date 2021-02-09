@@ -9,3 +9,4 @@
 - Retrofit2
 - Glide
 - Hilt
+- Coroutines

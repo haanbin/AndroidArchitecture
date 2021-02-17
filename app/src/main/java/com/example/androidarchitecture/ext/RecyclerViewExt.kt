@@ -41,7 +41,6 @@ fun RecyclerView.setUserRecyclerViewAttrTest(viewModel: BaseViewModel) {
                 viewModel.loadMoreTest
             )
         )
-
     }
 }
 
@@ -57,17 +56,18 @@ fun RecyclerView.setMovieRecyclerViewAttr(viewModel: BaseViewModel) {
         val layoutManager = LinearLayoutManager(context)
         adapter = MovieAdapter(viewModel)
         this.layoutManager = layoutManager
-        addOnScrollListener(object :
-            EndlessPageRecyclerViewScrollListener(layoutManager) {
-            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
-                viewModel.loadMore()
-            }
-        })
+        addOnScrollListener(
+            EndlessRecyclerViewScrollListener(
+                layoutManager,
+                8,
+                viewModel.loadMoreTest
+            )
+        )
     }
 }
 
 @BindingAdapter("setMovieData")
 fun RecyclerView.setMovieData(movieItems: List<MovieItem>?) {
     val movieAdapter = adapter as? MovieAdapter
-    movieItems?.let { movieAdapter?.setItem(it) }
+    movieItems?.let { movieAdapter?.replaceAllItem(it) }
 }

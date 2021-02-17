@@ -23,23 +23,16 @@ class MovieAdapter(movieSearchViewModel: MovieSearchViewModel) :
 
     override fun getItemCount(): Int = list.size
 
-    fun setItem(newList: List<MovieItem>) {
-        val calList = arrayListOf<MovieItem>()
-        calList.addAll(list)
-        calList.addAll(newList)
-        calculateDiff(calList)
+    fun replaceAllItem(newList: List<MovieItem>) {
+        list.run {
+            clear()
+            addAll(newList)
+        }
+        notifyDataSetChanged()
     }
 
     fun clearItem() {
         list.clear()
-        calculateDiff(list)
-    }
-
-    private fun calculateDiff(newList: List<MovieItem>) {
-        val diffResult = DiffUtil.calculateDiff(MovieDiffCallback(list, newList))
-        list.clear()
-        list.addAll(newList)
-        diffResult.dispatchUpdatesTo(this)
     }
 
     inner class MovieViewHolder(val binding: ItemMovieBinding) :

@@ -13,6 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.internal.toImmutableList
 
 class MovieSearchViewModel @ViewModelInject constructor(private val appRepository: AppRepository) :
     BaseViewModel() {
@@ -47,6 +48,7 @@ class MovieSearchViewModel @ViewModelInject constructor(private val appRepositor
                 _showToastEvent.value = Event("검색어를 입력해주세요.")
                 return
             }
+            _movieItems.value = listOf()
             queryMap["query"] = it
             getNaverMovie()
         }
@@ -54,6 +56,14 @@ class MovieSearchViewModel @ViewModelInject constructor(private val appRepositor
 
     fun onMovieItemClicked(link: String) {
         _openLinkEvent.value = Event(link)
+    }
+
+    val loadMoreTest = {
+        val start = queryMap["start"]?.toInt() ?: 0
+        if ((start + display) <= total) {
+            queryMap["start"] = (start + display).toString()
+            getNaverMovie()
+        }
     }
 
     fun loadMore() {
@@ -83,7 +93,9 @@ class MovieSearchViewModel @ViewModelInject constructor(private val appRepositor
                             }
                         } else {
                             withContext(Dispatchers.Main) {
-                                _movieItems.value = naverMovie.movieItems
+                                val itemList = (_movieItems.value ?: listOf()).toMutableList()
+                                itemList.addAll(naverMovie.movieItems)
+                                _movieItems.value = itemList
                                 _loading.value = false
                             }
                         }

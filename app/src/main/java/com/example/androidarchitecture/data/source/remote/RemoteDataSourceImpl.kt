@@ -11,10 +11,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RemoteDataSourceImpl @Inject constructor() : RemoteDataSource {
-
-    @Inject
-    lateinit var retrofitService: RetrofitService
+class RemoteDataSourceImpl @Inject constructor(private val retrofitService: RetrofitService) :
+    RemoteDataSource {
 
     override fun getRandomUser(queryMap: Map<String, String>, url: String): Single<RandomUser> =
         retrofitService.getRandomUser(url, queryMap)

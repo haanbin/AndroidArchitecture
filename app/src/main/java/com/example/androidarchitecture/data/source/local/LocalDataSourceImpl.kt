@@ -1,21 +1,28 @@
 package com.example.androidarchitecture.data.source.local
 
-import com.example.androidarchitecture.data.api.RetrofitService
-import com.example.androidarchitecture.data.entities.RandomUser
-import com.example.androidarchitecture.data.source.AppDataSource
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
+import com.example.androidarchitecture.data.entities.Log
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LocalDataSourceImpl @Inject constructor() : LocalDataSource {
+class LocalDataSourceImpl @Inject constructor(
+    private val logDao: LogDao
+) : LocalDataSource {
 
-    @Inject
-    lateinit var retrofitService: RetrofitService
+    override suspend fun addLog(msg: String) {
+        logDao.insertAll(
+            Log(
+                msg,
+                System.currentTimeMillis()
+            )
+        )
+    }
 
-    override fun getRandomUser(queryMap: Map<String, String>, url: String): Single<RandomUser> =
-        retrofitService.getRandomUser(url, queryMap)
-            .subscribeOn(Schedulers.io())
+    override suspend fun getAllLogs() = logDao.getAll()
 
+    override suspend fun removeLogs() {
+        logDao.nukeTable()
+    }
+
+    override suspend fun getLastLog(): Log? = logDao.getLastLog()
 }

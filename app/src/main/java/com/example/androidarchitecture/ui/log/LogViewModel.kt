@@ -1,6 +1,5 @@
 package com.example.androidarchitecture.ui.log
 
-import android.util.Log.d
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -35,7 +34,6 @@ class LogViewModel @ViewModelInject constructor(private val repository: AppRepos
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             val logs = repository.getAllLogs()
-            android.util.Log.d("123", logs.size.toString())
             withContext(Dispatchers.Main) {
                 _logs.value = logs
                 _loading.value = false

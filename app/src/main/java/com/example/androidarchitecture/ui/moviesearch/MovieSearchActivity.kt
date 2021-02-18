@@ -10,7 +10,6 @@ import com.example.androidarchitecture.databinding.ActivityMovieSearchBinding
 import com.example.androidarchitecture.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MovieSearchActivity :
     BaseActivity<ActivityMovieSearchBinding, MovieSearchViewModel>(R.layout.activity_movie_search) {
@@ -40,5 +39,4 @@ class MovieSearchActivity :
             }
         })
     }
-
 }

@@ -26,6 +26,4 @@ interface LogDao {
 
     @Query("SELECT * FROM LOG WHERE id = :id")
     suspend fun selectLogById(id: Long): Log?
-
-
 }

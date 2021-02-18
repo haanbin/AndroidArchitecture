@@ -9,7 +9,6 @@ import com.example.androidarchitecture.ui.base.BaseViewModel
 class RandomMainViewModel @ViewModelInject constructor() : BaseViewModel() {
 
     private val queryMap = HashMap<String, String>()
-
     private val _randomEvent = MutableLiveData<Event<Unit>>()
     val randomEvent: LiveData<Event<Unit>>
         get() = _randomEvent

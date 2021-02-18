@@ -2,7 +2,6 @@ package com.example.androidarchitecture.ui.moviesearch
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.databinding.ItemMovieBinding

@@ -39,5 +39,4 @@ class AppRepository @Inject constructor(
 
     override suspend fun getLastLog(): Log? = localDataSourceImpl.getLastLog()
 
-
 }

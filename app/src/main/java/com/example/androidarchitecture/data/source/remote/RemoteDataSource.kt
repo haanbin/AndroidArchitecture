@@ -10,5 +10,4 @@ interface RemoteDataSource {
     fun getRandomUser(queryMap: Map<String, String>, url: String) : Single<RandomUser>
 
     suspend fun getMovie(headerMap: Map<String, String>, queryMap: Map<String, String>) : Response<NaverMovie>
-
 }

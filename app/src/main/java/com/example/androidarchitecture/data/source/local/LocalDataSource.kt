@@ -13,5 +13,4 @@ interface LocalDataSource {
     suspend fun removeLogs()
 
     suspend fun getLastLog(): Log?
-
 }

@@ -23,5 +23,4 @@ class RemoteDataSourceImpl @Inject constructor(private val retrofitService: Retr
         queryMap: Map<String, String>
     ): Response<NaverMovie> =
         retrofitService.getMovie(headerMap, queryMap)
-
 }

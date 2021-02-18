@@ -26,5 +26,4 @@ object DatabaseModule {
 
     @Provides
     fun provideLogDao(database: AppDatabase): LogDao = database.logDao()
-
 }

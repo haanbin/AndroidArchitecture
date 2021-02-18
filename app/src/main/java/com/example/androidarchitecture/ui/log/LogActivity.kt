@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LogActivity : BaseActivity<ActivityLogBinding, LogViewModel>(R.layout.activity_log) {
 
-
     override val viewModel: LogViewModel by viewModels()
     override val viewModelVariable: Int
         get() = BR.viewModel
@@ -29,5 +28,4 @@ class LogActivity : BaseActivity<ActivityLogBinding, LogViewModel>(R.layout.acti
             })
         }
     }
-
 }

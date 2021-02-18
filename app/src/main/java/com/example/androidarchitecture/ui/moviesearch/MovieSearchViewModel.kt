@@ -9,11 +9,9 @@ import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.data.source.AppRepository
 import com.example.androidarchitecture.ui.base.BaseViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.internal.toImmutableList
 
 class MovieSearchViewModel @ViewModelInject constructor(private val appRepository: AppRepository) :
     BaseViewModel() {

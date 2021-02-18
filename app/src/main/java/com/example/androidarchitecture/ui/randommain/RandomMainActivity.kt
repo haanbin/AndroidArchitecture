@@ -15,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class RandomMainActivity : BaseActivity<ActivityMainBinding, RandomMainViewModel>(R.layout.activity_main) {
 
     override val viewModel: RandomMainViewModel by viewModels()
-
     override val viewModelVariable: Int
         get() = BR.viewModel
 

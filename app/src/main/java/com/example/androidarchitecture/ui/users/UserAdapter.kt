@@ -8,10 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidarchitecture.data.entities.UserFormat
 import com.example.androidarchitecture.databinding.ItemUserBinding
 
-
 class UserAdapter(private val viewModel: UsersViewModel) :
     ListAdapter<UserFormat, UserAdapter.UserViewHolder>(DIFF_CALLBACK) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding: ItemUserBinding =
@@ -25,7 +23,6 @@ class UserAdapter(private val viewModel: UsersViewModel) :
             holder.bindTo(userFormat, viewModel)
         }
     }
-
 
     fun setData(newList: List<UserFormat>) {
         submitList(newList)

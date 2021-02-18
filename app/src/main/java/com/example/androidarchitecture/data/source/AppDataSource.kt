@@ -19,5 +19,4 @@ interface AppDataSource {
     suspend fun removeLogs()
 
     suspend fun getLastLog(): Log?
-
 }

@@ -47,5 +47,4 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
             }
         })
     }
-
 }

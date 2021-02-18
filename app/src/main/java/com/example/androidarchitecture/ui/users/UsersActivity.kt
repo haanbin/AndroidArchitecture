@@ -12,7 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class UsersActivity : BaseActivity<ActivityUsersBinding, UsersViewModel>(R.layout.activity_users) {
 
     override val viewModel: UsersViewModel by viewModels()
-
     override val viewModelVariable: Int
         get() = BR.viewModel
 

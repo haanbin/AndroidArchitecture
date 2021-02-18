@@ -65,5 +65,4 @@ class RandomViewModel @ViewModelInject constructor(
             location
         )
     }
-
 }

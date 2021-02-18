@@ -3,9 +3,12 @@ package com.example.androidarchitecture.ext
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidarchitecture.data.entities.Log
 import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.data.entities.UserFormat
 import com.example.androidarchitecture.ui.base.BaseViewModel
+import com.example.androidarchitecture.ui.log.LogAdapter
+import com.example.androidarchitecture.ui.log.LogViewModel
 import com.example.androidarchitecture.ui.moviesearch.MovieAdapter
 import com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel
 import com.example.androidarchitecture.ui.users.UserAdapter
@@ -70,4 +73,13 @@ fun RecyclerView.setMovieRecyclerViewAttr(viewModel: BaseViewModel) {
 fun RecyclerView.setMovieData(movieItems: List<MovieItem>?) {
     val movieAdapter = adapter as? MovieAdapter
     movieItems?.let { movieAdapter?.replaceAllItem(it) }
+}
+
+@BindingAdapter("setLogData")
+fun RecyclerView.setLogData(logs: List<Log>?) {
+    val logAdapter = adapter as? LogAdapter ?: LogAdapter()
+    if (adapter == null) {
+        adapter = logAdapter
+    }
+    logs?.let { logAdapter.setData(it) }
 }

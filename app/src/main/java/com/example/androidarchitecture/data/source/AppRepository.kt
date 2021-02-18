@@ -1,5 +1,6 @@
 package com.example.androidarchitecture.data.source
 
+import com.example.androidarchitecture.data.entities.Log
 import com.example.androidarchitecture.data.entities.NaverMovie
 import com.example.androidarchitecture.data.entities.RandomUser
 import com.example.androidarchitecture.data.source.local.LocalDataSourceImpl
@@ -26,17 +27,17 @@ class AppRepository @Inject constructor(
         return remoteDataSourceImpl.getMovie(headerMap, queryMap)
     }
 
-    companion object {
-
-        private var INSTANCE: AppRepository? = null
-
-        @JvmStatic
-        fun getInstance(
-            remoteDataSourceImpl: RemoteDataSourceImpl,
-            localDataSourceImpl: LocalDataSourceImpl
-        ) = INSTANCE ?: synchronized(AppRepository::class.java) {
-            INSTANCE ?: AppRepository(remoteDataSourceImpl, localDataSourceImpl)
-                .also { INSTANCE = it }
-        }
+    override suspend fun addLog(msg: String) {
+        localDataSourceImpl.addLog(msg)
     }
+
+    override suspend fun getAllLogs(): List<Log> = localDataSourceImpl.getAllLogs()
+
+    override suspend fun removeLogs() {
+        localDataSourceImpl.removeLogs()
+    }
+
+    override suspend fun getLastLog(): Log? = localDataSourceImpl.getLastLog()
+
+
 }

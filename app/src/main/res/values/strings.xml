@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidArchitecture</string>
+    <string name="app_name">AndroidArchitectureTest</string>
     <string name="str_show_random_user">Show RandomUser</string>
     <string name="str_show_user_list">Show RandomUserList</string>
     <string name="title_activity_random">RandomActivity</string>
@@ -15,4 +15,6 @@
     <string name="str_search">검색</string>
     <string name="str_search_hint">검색어를 입력해주세요</string>
     <string name="str_clear">clear</string>
+    <string name="str_log_history">Log History</string>
+    <string name="str_see_log">See log</string>
 </resources>

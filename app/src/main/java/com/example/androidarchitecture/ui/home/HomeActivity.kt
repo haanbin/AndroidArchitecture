@@ -7,6 +7,7 @@ import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityHomeBinding
 import com.example.androidarchitecture.ui.base.BaseActivity
+import com.example.androidarchitecture.ui.log.LogActivity
 import com.example.androidarchitecture.ui.moviesearch.MovieSearchActivity
 import com.example.androidarchitecture.ui.randommain.RandomMainActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,6 +35,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         viewModel.movieSearchEvent.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 Intent(this, MovieSearchActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        })
+        viewModel.logEvent.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                Intent(this, LogActivity::class.java).apply {
                     startActivity(this)
                 }
             }

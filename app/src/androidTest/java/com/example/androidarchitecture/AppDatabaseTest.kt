@@ -7,24 +7,30 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.example.androidarchitecture.data.entities.Log
 import com.example.androidarchitecture.data.source.local.AppDatabase
 import com.example.androidarchitecture.data.source.local.LogDao
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import javax.inject.Inject
 
-@RunWith(AndroidJUnit4::class)
+@HiltAndroidTest
 class AppDatabaseTest {
 
-    private lateinit var appDatabase: AppDatabase
-    private lateinit var logDao: LogDao
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
+
+    @Inject
+    lateinit var appDatabase: AppDatabase
+    lateinit var logDao: LogDao
 
     @Before
     fun createDb() {
-        val context = InstrumentationRegistry.getInstrumentation().targetContext
-        appDatabase = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
-            .build()
+        hiltRule.inject()
         logDao = appDatabase.logDao()
     }
 

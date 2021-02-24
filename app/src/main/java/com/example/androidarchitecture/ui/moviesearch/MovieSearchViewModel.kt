@@ -8,12 +8,13 @@ import com.example.androidarchitecture.BuildConfig
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.data.source.AppRepository
+import com.example.androidarchitecture.domain.GetMovieUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieSearchViewModel @ViewModelInject constructor(private val appRepository: AppRepository) :
+class MovieSearchViewModel @ViewModelInject constructor(private val getMovieUseCase: GetMovieUseCase) :
     BaseViewModel() {
 
     private val _loading = MutableLiveData<Boolean>(false)
@@ -111,6 +112,6 @@ class MovieSearchViewModel @ViewModelInject constructor(private val appRepositor
         }
     }
 
-    private suspend fun getMovieCall() = appRepository.getMovie(headerMap, queryMap)
+    private suspend fun getMovieCall() = getMovieUseCase(headerMap, queryMap)
 
 }

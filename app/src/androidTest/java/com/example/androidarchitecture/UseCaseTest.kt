@@ -6,6 +6,7 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import javax.inject.Inject
+
 @HiltAndroidTest
 class UseCaseTest {
 

@@ -6,11 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.source.AppRepository
+import com.example.androidarchitecture.domain.SaveLogUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeViewModel @ViewModelInject constructor(private val repository: AppRepository) : BaseViewModel() {
+class HomeViewModel @ViewModelInject constructor(private val saveLogUseCase: SaveLogUseCase) : BaseViewModel() {
 
     private val _randomEvent = MutableLiveData<Event<Unit>>()
     val randomEvent: LiveData<Event<Unit>>
@@ -26,14 +27,14 @@ class HomeViewModel @ViewModelInject constructor(private val repository: AppRepo
 
     fun onRandomClick() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addLog("RANDOM CLICK")
+            saveLogUseCase("RANDOM CLICK")
         }
         _randomEvent.value = Event(Unit)
     }
 
     fun onMovieSearchClick() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addLog("MOVIE SEARCH CLICK")
+            saveLogUseCase("MOVIE SEARCH CLICK")
         }
         _movieSearchEvent.value = Event(Unit)
     }

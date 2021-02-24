@@ -14,8 +14,8 @@ class GetMovieUseCase @Inject constructor(
     suspend operator fun invoke(
         headerMap: Map<String, String>,
         queryMap: Map<String, String>
-    ): Response<NaverMovie> {
-        return appRepository.getMovie(headerMap, queryMap)
-    }
+    ): Response<NaverMovie> =
+        appRepository.getMovie(headerMap, queryMap)
+
 
 }

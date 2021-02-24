@@ -9,13 +9,14 @@ import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.Result
 import com.example.androidarchitecture.data.entities.UserFormat
 import com.example.androidarchitecture.data.source.AppRepository
+import com.example.androidarchitecture.domain.GetRandomUsersUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.example.androidarchitecture.ui.random.RandomViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 
 class UsersViewModel @ViewModelInject constructor(
-    private val appRepository: AppRepository
+    private val getRandomUsersUseCase: GetRandomUsersUseCase
 ) : BaseViewModel() {
 
     private val queryMap = HashMap<String, String>()
@@ -51,14 +52,14 @@ class UsersViewModel @ViewModelInject constructor(
         loadRandomUser()
     }
 
-    fun clearList(){
+    fun clearList() {
         _userFormats.value = listOf()
         queryMap["page"] = "1"
         loadRandomUser()
     }
 
     private fun loadRandomUser() {
-        appRepository.getRandomUser(queryMap, randomUrl)
+        getRandomUsersUseCase(queryMap, randomUrl)
             .map {
                 it.results.asSequence()
                     .map { result ->

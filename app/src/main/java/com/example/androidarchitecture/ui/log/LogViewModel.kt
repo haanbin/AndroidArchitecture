@@ -7,12 +7,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.Log
 import com.example.androidarchitecture.data.source.AppRepository
+import com.example.androidarchitecture.domain.DeleteAllLogUseCase
+import com.example.androidarchitecture.domain.GetLogsUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LogViewModel @ViewModelInject constructor(private val repository: AppRepository) :
+class LogViewModel @ViewModelInject constructor(
+    private val deleteAllLogUseCase: DeleteAllLogUseCase,
+    private val getLogsUseCase: GetLogsUseCase
+) :
     BaseViewModel() {
 
     private val _logs = MutableLiveData<List<Log>>()
@@ -33,7 +38,7 @@ class LogViewModel @ViewModelInject constructor(private val repository: AppRepos
     private fun getLog() {
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
-            val logs = repository.getAllLogs()
+            val logs = getLogsUseCase()
             withContext(Dispatchers.Main) {
                 _logs.value = logs
                 _loading.value = false
@@ -43,7 +48,7 @@ class LogViewModel @ViewModelInject constructor(private val repository: AppRepos
 
     private fun removeLog() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.removeLogs()
+            deleteAllLogUseCase()
             withContext(Dispatchers.Main) {
                 _showToastEvent.value = Event("Clear all log")
                 getLog()

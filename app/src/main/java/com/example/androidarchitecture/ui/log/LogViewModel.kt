@@ -46,6 +46,7 @@ class LogViewModel @ViewModelInject constructor(private val repository: AppRepos
             repository.removeLogs()
             withContext(Dispatchers.Main) {
                 _showToastEvent.value = Event("Clear all log")
+                getLog()
             }
         }
     }

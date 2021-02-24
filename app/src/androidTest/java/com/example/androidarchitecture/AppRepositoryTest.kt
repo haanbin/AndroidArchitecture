@@ -13,6 +13,7 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import javax.inject.Inject
@@ -27,10 +28,6 @@ class AppRepositoryTest {
     lateinit var appRepository: AppRepository
 
     private val queryMap = HashMap<String, String>()
-//    @Inject
-//    lateinit var localDataSource: LocalDataSourceImpl
-//    @Inject
-//    lateinit var remoteDataSource: RemoteDataSource
 
     @Before
     fun init() {
@@ -52,11 +49,12 @@ class AppRepositoryTest {
     @Test
     fun randomUserTest(){
         appRepository.getRandomUser(queryMap, "https://randomuser.me/api/")
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                println(it.results)
+                Assert.assertNotNull(it)
             }, {
-                println(it.message.toString())
+                Assert.assertNotNull(it.message)
             })
     }
 

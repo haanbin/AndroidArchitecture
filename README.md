@@ -1,6 +1,6 @@
 # AndroidArchitecture
 
-### Using Library
+### Using
 ---
 - AAC ViewModel
 - LiveData
@@ -10,3 +10,5 @@
 - Glide
 - Hilt
 - Coroutines
+- Room
+- Usecase

@@ -15,6 +15,7 @@
     <string name="str_search">검색</string>
     <string name="str_search_hint">검색어를 입력해주세요</string>
     <string name="str_reload">reload</string>
+    <string name="str_clear">clear</string>
     <string name="str_log_history">Log History</string>
     <string name="str_see_log">See log</string>
 </resources>

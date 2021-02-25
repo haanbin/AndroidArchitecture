@@ -16,24 +16,36 @@
 
         <TextView
             android:id="@+id/text_item_log_msg"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="start|center"
             android:padding="10dp"
-            android:textSize="15sp"
             android:text="@{model.msg}"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/text_item_log_time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="LOG 123" />
+            tools:text="LOG 123LOG 123LOG 123LOG 123LOG 123LOG 123LOG 123" />
 
         <TextView
+            android:id="@+id/text_item_log_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:paddingHorizontal="10dp"
-            app:timeStampFormat="@{model.timestamp}"
             app:layout_constraintBottom_toBottomOf="@id/text_item_log_msg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_item_log_msg"
-            tools:text="2021-12-31 12:30" />
+            app:timeStampFormat="@{model.timestamp}"
+            tools:text="21-12-31 12:30" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

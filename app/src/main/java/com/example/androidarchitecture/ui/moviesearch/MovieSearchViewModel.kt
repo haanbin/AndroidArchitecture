@@ -9,11 +9,15 @@ import com.example.androidarchitecture.Event
 import com.test.domain.model.MovieItem
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.test.domain.GetMovieUseCase
+import com.test.domain.SaveLogUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieSearchViewModel @ViewModelInject constructor(private val getMovieUseCase: GetMovieUseCase) :
+class MovieSearchViewModel @ViewModelInject constructor(
+    private val getMovieUseCase: GetMovieUseCase,
+    private val saveLogUseCase: SaveLogUseCase
+) :
     BaseViewModel() {
 
     private val _loading = MutableLiveData<Boolean>(false)
@@ -48,6 +52,7 @@ class MovieSearchViewModel @ViewModelInject constructor(private val getMovieUseC
             }
             _movieItems.value = listOf()
             queryMap["query"] = it
+            saveKeywordLog(it)
             getNaverMovie()
         }
     }
@@ -108,6 +113,12 @@ class MovieSearchViewModel @ViewModelInject constructor(private val getMovieUseC
                     _showToastEvent.value = Event("검색에 실패했습니다.")
                 }
             }
+        }
+    }
+
+    private fun saveKeywordLog(keyword: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            saveLogUseCase("SEARCH MOVIE KEYWORD : $keyword")
         }
     }
 

@@ -22,7 +22,7 @@ fun TextView.setHtmlText(string: String) {
 @BindingAdapter("timeStampFormat")
 fun TextView.setTimeStampFormat(timeStamp: Long) {
     try {
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val sdf = SimpleDateFormat("yy-MM-dd HH:mm:ss")
         val date = Date().apply {
             time = timeStamp
         }

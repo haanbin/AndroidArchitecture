@@ -51,7 +51,7 @@ class UsersViewModel @ViewModelInject constructor(
         loadRandomUser()
     }
 
-    fun clearList() {
+    fun reloadList() {
         _userFormats.value = listOf()
         queryMap["page"] = "1"
         loadRandomUser()

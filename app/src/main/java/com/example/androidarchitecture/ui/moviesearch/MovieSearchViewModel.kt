@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.androidarchitecture.BuildConfig
 import com.example.androidarchitecture.Event
-import com.test.domain.dto.MovieItem
+import com.test.domain.model.MovieItem
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.test.domain.GetMovieUseCase
 import kotlinx.coroutines.Dispatchers

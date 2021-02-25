@@ -9,7 +9,7 @@
             type="com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel" />
         <variable
             name="model"
-            type="com.test.domain.dto.MovieItem" />
+            type="com.test.domain.model.MovieItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

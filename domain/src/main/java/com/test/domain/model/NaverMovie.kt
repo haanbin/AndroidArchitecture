@@ -1,4 +1,4 @@
-package com.test.domain.dto
+package com.test.domain.model
 
 import com.google.gson.annotations.SerializedName
 

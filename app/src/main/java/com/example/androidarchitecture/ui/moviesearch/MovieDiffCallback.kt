@@ -1,7 +1,7 @@
 package com.example.androidarchitecture.ui.moviesearch
 
 import androidx.recyclerview.widget.DiffUtil
-import com.test.domain.dto.MovieItem
+import com.test.domain.model.MovieItem
 
 class MovieDiffCallback(
     private val oldList: List<MovieItem>,

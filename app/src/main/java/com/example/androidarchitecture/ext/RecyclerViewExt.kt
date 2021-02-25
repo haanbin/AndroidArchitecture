@@ -3,8 +3,8 @@ package com.example.androidarchitecture.ext
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.test.domain.dto.MovieItem
-import com.test.domain.dto.UserFormat
+import com.test.domain.model.MovieItem
+import com.test.domain.model.UserFormat
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.example.androidarchitecture.ui.log.LogAdapter
 import com.example.androidarchitecture.ui.moviesearch.MovieAdapter

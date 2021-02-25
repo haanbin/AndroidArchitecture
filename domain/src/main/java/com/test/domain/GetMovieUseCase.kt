@@ -1,6 +1,6 @@
 package com.test.domain
 
-import com.test.domain.dto.NaverMovie
+import com.test.domain.model.NaverMovie
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton

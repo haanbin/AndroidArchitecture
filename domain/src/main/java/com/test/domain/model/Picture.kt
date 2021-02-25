@@ -1,4 +1,4 @@
-package com.test.domain.dto
+package com.test.domain.model
 
 data class Picture(
     val large: String,

@@ -1,6 +1,6 @@
 package com.test.domain
 
-import com.test.domain.dto.RandomUser
+import com.test.domain.model.RandomUser
 import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton

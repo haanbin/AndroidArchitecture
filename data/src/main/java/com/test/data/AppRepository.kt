@@ -1,8 +1,8 @@
 package com.test.data
 
 import com.test.domain.dto.LogDto
-import com.test.domain.dto.NaverMovie
-import com.test.domain.dto.RandomUser
+import com.test.domain.model.NaverMovie
+import com.test.domain.model.RandomUser
 import com.test.data.local.LocalDataSourceImpl
 import com.test.data.remote.RemoteDataSourceImpl
 import com.test.domain.AppDataSource

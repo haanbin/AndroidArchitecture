@@ -1,7 +1,7 @@
 package com.test.data.remote
 
-import com.test.domain.dto.NaverMovie
-import com.test.domain.dto.RandomUser
+import com.test.domain.model.NaverMovie
+import com.test.domain.model.RandomUser
 import io.reactivex.Single
 import retrofit2.Response
 

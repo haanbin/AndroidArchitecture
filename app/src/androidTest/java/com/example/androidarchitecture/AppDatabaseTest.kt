@@ -1,7 +1,7 @@
 package com.example.androidarchitecture
 
 import android.os.SystemClock
-import com.example.androidarchitecture.data.entities.Log
+import com.test.domain.dto.Log
 import com.example.androidarchitecture.data.source.local.AppDatabase
 import com.example.androidarchitecture.data.source.local.LogDao
 import dagger.hilt.android.testing.HiltAndroidRule

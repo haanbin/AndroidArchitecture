@@ -5,9 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.androidarchitecture.Event
-import com.example.androidarchitecture.data.source.AppRepository
-import com.example.androidarchitecture.domain.SaveLogUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
+import com.test.domain.SaveLogUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

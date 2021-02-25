@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidarchitecture.data.entities.UserFormat
+import com.test.domain.dto.UserFormat
 import com.example.androidarchitecture.databinding.ItemUserBinding
 
 class UserAdapter(private val viewModel: UsersViewModel) :

@@ -7,7 +7,7 @@
 
         <variable
             name="userFormat"
-            type="com.example.androidarchitecture.data.entities.UserFormat" />
+            type="com.test.domain.dto.UserFormat" />
 
         <variable
             name="viewModel"

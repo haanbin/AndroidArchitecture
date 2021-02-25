@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.example.androidarchitecture.data.entities.Log" />
+            type="com.test.domain.dto.Log" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -6,11 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.androidarchitecture.BuildConfig
 import com.example.androidarchitecture.Event
-import com.example.androidarchitecture.data.entities.Result
-import com.example.androidarchitecture.data.entities.UserFormat
-import com.example.androidarchitecture.data.source.AppRepository
-import com.example.androidarchitecture.domain.GetRandomUsersUseCase
+import com.test.domain.dto.Result
+import com.test.domain.dto.UserFormat
 import com.example.androidarchitecture.ui.base.BaseViewModel
+import com.test.domain.GetRandomUsersUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 

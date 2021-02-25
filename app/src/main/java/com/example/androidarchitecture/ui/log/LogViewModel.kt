@@ -5,11 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.androidarchitecture.Event
-import com.example.androidarchitecture.data.entities.Log
-import com.example.androidarchitecture.data.source.AppRepository
-import com.example.androidarchitecture.domain.DeleteAllLogUseCase
-import com.example.androidarchitecture.domain.GetLogsUseCase
+import com.test.domain.dto.Log
 import com.example.androidarchitecture.ui.base.BaseViewModel
+import com.test.domain.DeleteAllLogUseCase
+import com.test.domain.GetLogsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidarchitecture.data.entities.Log
+import com.test.domain.dto.Log
 import com.example.androidarchitecture.databinding.ItemLogBinding
 
 class LogAdapter : ListAdapter<Log, LogAdapter.LogViewHolder>(DIFF_CALLBACK) {

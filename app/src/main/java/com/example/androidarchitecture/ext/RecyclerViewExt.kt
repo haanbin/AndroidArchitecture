@@ -3,12 +3,11 @@ package com.example.androidarchitecture.ext
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidarchitecture.data.entities.Log
-import com.example.androidarchitecture.data.entities.MovieItem
-import com.example.androidarchitecture.data.entities.UserFormat
+import com.test.domain.dto.Log
+import com.test.domain.dto.MovieItem
+import com.test.domain.dto.UserFormat
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.example.androidarchitecture.ui.log.LogAdapter
-import com.example.androidarchitecture.ui.log.LogViewModel
 import com.example.androidarchitecture.ui.moviesearch.MovieAdapter
 import com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel
 import com.example.androidarchitecture.ui.users.UserAdapter

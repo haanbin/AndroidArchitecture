@@ -1,7 +1,7 @@
 package com.example.androidarchitecture
 
 import android.os.SystemClock
-import com.test.domain.dto.Log
+import com.test.domain.dto.LogDto
 import com.example.androidarchitecture.data.source.local.AppDatabase
 import com.example.androidarchitecture.data.source.local.LogDao
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -37,7 +37,7 @@ class AppDatabaseTest {
 
     @Test
     fun insertLog() = runBlocking {
-        val log = Log("TEST LOG", SystemClock.currentThreadTimeMillis())
+        val log = LogDto("TEST LOG", SystemClock.currentThreadTimeMillis())
         logDao.insertAll(log)
         val logs = logDao.getLastLog()
         assertEquals(logs?.msg, "TEST LOG")

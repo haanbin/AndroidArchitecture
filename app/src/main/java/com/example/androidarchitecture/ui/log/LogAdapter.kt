@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.test.domain.dto.Log
 import com.example.androidarchitecture.databinding.ItemLogBinding
+import com.example.androidarchitecture.vo.LogVo
 
-class LogAdapter : ListAdapter<Log, LogAdapter.LogViewHolder>(DIFF_CALLBACK) {
+class LogAdapter : ListAdapter<LogVo, LogAdapter.LogViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogViewHolder {
         val binding: ItemLogBinding =
@@ -20,16 +20,16 @@ class LogAdapter : ListAdapter<Log, LogAdapter.LogViewHolder>(DIFF_CALLBACK) {
         holder.bindTo(getItem(position))
     }
 
-    fun setData(newList: List<Log>) {
+    fun setData(newList: List<LogVo>) {
         submitList(newList)
     }
 
     inner class LogViewHolder(private val binding: ItemLogBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindTo(log: Log) {
+        fun bindTo(logDto: LogVo) {
             with(binding) {
-                model = log
+                model = logDto
                 executePendingBindings()
             }
         }
@@ -37,17 +37,17 @@ class LogAdapter : ListAdapter<Log, LogAdapter.LogViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         private val DIFF_CALLBACK = object :
-            DiffUtil.ItemCallback<Log>() {
+            DiffUtil.ItemCallback<LogVo>() {
             // Concert details may have changed if reloaded from the database,
             // but ID is fixed.
             override fun areItemsTheSame(
-                oldConcert: Log,
-                newConcert: Log
+                oldConcert: LogVo,
+                newConcert: LogVo
             ) = oldConcert.id == newConcert.id
 
             override fun areContentsTheSame(
-                oldConcert: Log,
-                newConcert: Log
+                oldConcert: LogVo,
+                newConcert: LogVo
             ) = oldConcert == newConcert
         }
     }

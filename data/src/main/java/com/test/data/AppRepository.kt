@@ -1,6 +1,6 @@
 package com.test.data
 
-import com.test.domain.dto.Log
+import com.test.domain.dto.LogDto
 import com.test.domain.dto.NaverMovie
 import com.test.domain.dto.RandomUser
 import com.test.data.local.LocalDataSourceImpl
@@ -32,12 +32,12 @@ class AppRepository @Inject constructor(
         localDataSourceImpl.addLog(msg)
     }
 
-    override suspend fun getAllLogs(): List<Log> = localDataSourceImpl.getAllLogs()
+    override suspend fun getAllLogs(): List<LogDto> = localDataSourceImpl.getAllLogs()
 
     override suspend fun removeLogs() {
         localDataSourceImpl.removeLogs()
     }
 
-    override suspend fun getLastLog(): Log? = localDataSourceImpl.getLastLog()
+    override suspend fun getLastLog(): LogDto? = localDataSourceImpl.getLastLog()
 
 }

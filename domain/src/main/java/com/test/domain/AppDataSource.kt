@@ -1,6 +1,6 @@
 package com.test.domain
 
-import com.test.domain.dto.Log
+import com.test.domain.dto.LogDto
 import com.test.domain.dto.NaverMovie
 import com.test.domain.dto.RandomUser
 import io.reactivex.Single
@@ -14,9 +14,9 @@ interface AppDataSource {
 
     suspend fun addLog(msg: String)
 
-    suspend fun getAllLogs(): List<Log>
+    suspend fun getAllLogs(): List<LogDto>
 
     suspend fun removeLogs()
 
-    suspend fun getLastLog(): Log?
+    suspend fun getLastLog(): LogDto?
 }

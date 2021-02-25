@@ -3,7 +3,6 @@ package com.example.androidarchitecture.ext
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.test.domain.dto.Log
 import com.test.domain.dto.MovieItem
 import com.test.domain.dto.UserFormat
 import com.example.androidarchitecture.ui.base.BaseViewModel
@@ -14,6 +13,7 @@ import com.example.androidarchitecture.ui.users.UserAdapter
 import com.example.androidarchitecture.ui.users.UsersViewModel
 import com.example.androidarchitecture.util.EndlessPageRecyclerViewScrollListener
 import com.example.androidarchitecture.util.EndlessRecyclerViewScrollListener
+import com.example.androidarchitecture.vo.LogVo
 
 @BindingAdapter("setUserRecyclerViewAttr")
 fun RecyclerView.setUserRecyclerViewAttr(viewModel: BaseViewModel) {
@@ -75,10 +75,10 @@ fun RecyclerView.setMovieData(movieItems: List<MovieItem>?) {
 }
 
 @BindingAdapter("setLogData")
-fun RecyclerView.setLogData(logs: List<Log>?) {
+fun RecyclerView.setLogData(logVos: List<LogVo>?) {
     val logAdapter = adapter as? LogAdapter ?: LogAdapter()
     if (adapter == null) {
         adapter = logAdapter
     }
-    logs?.let { logAdapter.setData(it) }
+    logVos?.let { logAdapter.setData(it) }
 }

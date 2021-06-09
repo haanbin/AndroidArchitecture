@@ -9,5 +9,4 @@ class GetRandomUsersUseCase @Inject constructor(private val appRepository: AppRe
 
     operator fun invoke(queryMap: Map<String, String>, url: String): Single<RandomUser> =
         appRepository.getRandomUser(queryMap, url)
-
 }

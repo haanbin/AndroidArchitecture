@@ -3,7 +3,7 @@ package com.example.androidarchitecture.ui.base
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseViewModel: ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     protected val compositeDisposable = CompositeDisposable()
 

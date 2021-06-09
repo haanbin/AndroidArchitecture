@@ -5,9 +5,12 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.runBlocking
-import org.junit.*
 import javax.inject.Inject
+import kotlinx.coroutines.runBlocking
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 
 @HiltAndroidTest
 class AppRepositoryTest {
@@ -38,7 +41,7 @@ class AppRepositoryTest {
     }
 
     @Test
-    fun randomUserTest(){
+    fun randomUserTest() {
         appRepository.getRandomUser(queryMap, "https://randomuser.me/api/")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

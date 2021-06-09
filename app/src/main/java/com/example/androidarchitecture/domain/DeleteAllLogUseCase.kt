@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class DeleteAllLogUseCase @Inject constructor(private val appRepository: AppRepository) {
 
-    suspend operator fun invoke(){
+    suspend operator fun invoke() {
         appRepository.removeLogs()
     }
 }

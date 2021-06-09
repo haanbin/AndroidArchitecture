@@ -17,5 +17,4 @@ class MovieDiffCallback(
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
         oldList[oldItemPosition].title == newList[newItemPosition].title
-
 }

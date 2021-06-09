@@ -8,7 +8,6 @@ import com.example.androidarchitecture.BuildConfig
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.Result
 import com.example.androidarchitecture.data.entities.UserFormat
-import com.example.androidarchitecture.data.source.AppRepository
 import com.example.androidarchitecture.domain.GetRandomUsersUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.example.androidarchitecture.ui.random.RandomViewModel

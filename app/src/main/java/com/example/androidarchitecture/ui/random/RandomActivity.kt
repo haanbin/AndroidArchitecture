@@ -33,5 +33,4 @@ class RandomActivity :
         super.onResume()
         viewModel.start()
     }
-
 }

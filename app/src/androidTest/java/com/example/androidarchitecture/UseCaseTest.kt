@@ -3,9 +3,12 @@ package com.example.androidarchitecture
 import com.example.androidarchitecture.domain.GetMovieUseCase
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import kotlinx.coroutines.runBlocking
-import org.junit.*
 import javax.inject.Inject
+import kotlinx.coroutines.runBlocking
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 
 @HiltAndroidTest
 class UseCaseTest {
@@ -34,7 +37,6 @@ class UseCaseTest {
     @Test
     fun getMovieUseCaseTest() = runBlocking {
         val response = getMovieUseCase(headerMap, queryMap)
-            Assert.assertEquals(true, response.isSuccessful)
+        Assert.assertEquals(true, response.isSuccessful)
     }
 }
-

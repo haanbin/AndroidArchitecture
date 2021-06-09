@@ -2,9 +2,9 @@ package com.example.androidarchitecture.domain
 
 import com.example.androidarchitecture.data.entities.NaverMovie
 import com.example.androidarchitecture.data.source.AppRepository
-import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
+import retrofit2.Response
 
 @Singleton
 class GetMovieUseCase @Inject constructor(
@@ -16,6 +16,4 @@ class GetMovieUseCase @Inject constructor(
         queryMap: Map<String, String>
     ): Response<NaverMovie> =
         appRepository.getMovie(headerMap, queryMap)
-
-
 }

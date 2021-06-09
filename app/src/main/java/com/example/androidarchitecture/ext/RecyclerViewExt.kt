@@ -8,7 +8,6 @@ import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.data.entities.UserFormat
 import com.example.androidarchitecture.ui.base.BaseViewModel
 import com.example.androidarchitecture.ui.log.LogAdapter
-import com.example.androidarchitecture.ui.log.LogViewModel
 import com.example.androidarchitecture.ui.moviesearch.MovieAdapter
 import com.example.androidarchitecture.ui.moviesearch.MovieSearchViewModel
 import com.example.androidarchitecture.ui.users.UserAdapter
@@ -57,7 +56,7 @@ fun RecyclerView.setUserData(userFormats: List<UserFormat>?) {
 fun RecyclerView.setMovieRecyclerViewAttr(viewModel: BaseViewModel) {
     if (viewModel is MovieSearchViewModel) {
         val layoutManager = LinearLayoutManager(context)
-        adapter = MovieAdapter(viewModel)
+        adapter = MovieAdapter()
         this.layoutManager = layoutManager
         addOnScrollListener(
             EndlessRecyclerViewScrollListener(

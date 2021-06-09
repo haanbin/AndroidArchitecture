@@ -2,7 +2,6 @@ package com.example.androidarchitecture.ui.randommain
 
 import android.content.Intent
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityMainBinding
@@ -24,12 +23,12 @@ class RandomMainActivity : BaseActivity<ActivityMainBinding, RandomMainViewModel
 
     private fun onObserve() {
         with(viewModel) {
-            randomEvent.observe(this@RandomMainActivity, Observer {
+            randomEvent.observe(this@RandomMainActivity, {
                 it.getContentIfNotHandled()?.let {
                     openRandom()
                 }
             })
-            usersEvent.observe(this@RandomMainActivity, Observer {
+            usersEvent.observe(this@RandomMainActivity, {
                 it.getContentIfNotHandled()?.let {
                     openUsers()
                 }
@@ -48,5 +47,4 @@ class RandomMainActivity : BaseActivity<ActivityMainBinding, RandomMainViewModel
             startActivity(this)
         }
     }
-
 }

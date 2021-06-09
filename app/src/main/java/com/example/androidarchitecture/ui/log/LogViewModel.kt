@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.androidarchitecture.Event
 import com.example.androidarchitecture.data.entities.Log
-import com.example.androidarchitecture.data.source.AppRepository
 import com.example.androidarchitecture.domain.DeleteAllLogUseCase
 import com.example.androidarchitecture.domain.GetLogsUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel

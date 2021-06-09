@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.databinding.ItemMovieBinding
 
-class MovieAdapter(movieSearchViewModel: MovieSearchViewModel) :
+class MovieAdapter :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private val list: ArrayList<MovieItem> = arrayListOf()

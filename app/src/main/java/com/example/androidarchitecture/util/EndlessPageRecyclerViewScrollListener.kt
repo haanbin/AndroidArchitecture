@@ -15,15 +15,18 @@ abstract class EndlessPageRecyclerViewScrollListener(private val layoutManager: 
     // The minimum amount of items to have below your current scroll position
     // before loading more.
     private var visibleThreshold = 5
+
     // The current offset index of data you have loaded
     private var currentPage = 1
+
     // The total number of items in the dataset after the last load
     private var previousTotalItemCount = 0
+
     // True if we are still waiting for the last set of data to load.
     private var loading = true
+
     // Sets the starting page index
     private val startingPageIndex = 0
-
 
     init {
         visibleThreshold = when (layoutManager) {
@@ -31,7 +34,6 @@ abstract class EndlessPageRecyclerViewScrollListener(private val layoutManager: 
             is StaggeredGridLayoutManager -> visibleThreshold * layoutManager.spanCount
             else -> visibleThreshold
         }
-
     }
 
     private fun getLastVisibleItem(lastVisibleItemPositions: IntArray): Int {
@@ -108,5 +110,4 @@ abstract class EndlessPageRecyclerViewScrollListener(private val layoutManager: 
 
     // Defines the process for actually loading more data based on page
     abstract fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView)
-
 }

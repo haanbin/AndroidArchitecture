@@ -4,7 +4,10 @@ import com.example.androidarchitecture.data.entities.NaverMovie
 import com.example.androidarchitecture.data.entities.RandomUser
 import io.reactivex.Single
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.HeaderMap
+import retrofit2.http.QueryMap
+import retrofit2.http.Url
 
 interface RetrofitService {
 
@@ -23,5 +26,4 @@ interface RetrofitService {
         @QueryMap
         queryMap: Map<String, String>
     ): Response<NaverMovie>
-
 }

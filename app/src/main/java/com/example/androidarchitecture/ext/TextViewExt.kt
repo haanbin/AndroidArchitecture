@@ -1,21 +1,16 @@
 package com.example.androidarchitecture.ext
 
 import android.annotation.SuppressLint
-import android.os.Build
-import android.text.Html
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import java.lang.Exception
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 @BindingAdapter("htmlText")
 fun TextView.setHtmlText(string: String) {
-    text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        (Html.fromHtml(string, Html.FROM_HTML_MODE_COMPACT));
-    } else {
-        (Html.fromHtml(string));
-    }
+    text = HtmlCompat.fromHtml(string, HtmlCompat.FROM_HTML_MODE_LEGACY)
 }
 
 @SuppressLint("SimpleDateFormat")
@@ -27,7 +22,7 @@ fun TextView.setTimeStampFormat(timeStamp: Long) {
             time = timeStamp
         }
         text = sdf.format(date)
-    } catch (e: Exception){
+    } catch (e: Exception) {
         text = "알 수 없음"
     }
 }

@@ -33,7 +33,7 @@ class RandomMainViewModel @ViewModelInject constructor(
     }
 
     private fun saveRandomLog(msg: String) {
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             saveLogUseCase(msg)
         }
     }

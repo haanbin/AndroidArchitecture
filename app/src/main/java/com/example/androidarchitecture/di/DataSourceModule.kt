@@ -12,39 +12,39 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Qualifier
 import javax.inject.Singleton
-//
-//@Qualifier
-//annotation class Local
-//
-//@Qualifier
-//annotation class Remote
-//
-//@InstallIn(ApplicationComponent::class)
-//@Module
-//abstract class LocalDataSourceModule {
-//
-//    @Local
-//    @Singleton
-//    @Binds
-//    abstract fun bindLocalDataSource(impl: LocalDataSourceImpl): LocalDataSource
-//}
-//
-//@InstallIn(ApplicationComponent::class)
-//@Module
-//abstract class RemoteDataSourceModule {
-//
-//    @Remote
-//    @Singleton
-//    @Binds
-//    abstract fun bindRemoteDataSource(impl: RemoteDataSourceImpl): RemoteDataSource
-//}
-//
-//@InstallIn(ApplicationComponent::class)
-//@Module
-//abstract class RepositoryModule {
-//
-//    @Remote
-//    @Singleton
-//    @Binds
-//    abstract fun bindRepository(impl: AppRepository): AppDataSource
-//}
+
+@Qualifier
+annotation class Local
+
+@Qualifier
+annotation class Remote
+
+@InstallIn(ApplicationComponent::class)
+@Module
+abstract class LocalDataSourceModule {
+
+    @Local
+    @Singleton
+    @Binds
+    abstract fun bindLocalDataSource(impl: LocalDataSourceImpl): LocalDataSource
+}
+
+@InstallIn(ApplicationComponent::class)
+@Module
+abstract class RemoteDataSourceModule {
+
+    @Remote
+    @Singleton
+    @Binds
+    abstract fun bindRemoteDataSource(impl: RemoteDataSourceImpl): RemoteDataSource
+}
+
+@InstallIn(ApplicationComponent::class)
+@Module
+abstract class RepositoryModule {
+
+    @Remote
+    @Singleton
+    @Binds
+    abstract fun bindRepository(impl: AppRepository): AppDataSource
+}

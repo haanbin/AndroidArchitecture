@@ -33,7 +33,7 @@ class MovieSearchViewModel @ViewModelInject constructor(
 
     val searchText = MutableLiveData<String>()
     private val display = 10
-    private var total = 0;
+    private var total = 0
     private val queryMap = HashMap<String, String>().apply {
         put("display", display.toString())
         put("start", "1")
@@ -123,5 +123,4 @@ class MovieSearchViewModel @ViewModelInject constructor(
     }
 
     private suspend fun getMovieCall() = getMovieUseCase(headerMap, queryMap)
-
 }

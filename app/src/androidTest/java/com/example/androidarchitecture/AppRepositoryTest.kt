@@ -1,6 +1,6 @@
 package com.example.androidarchitecture
 
-import com.example.androidarchitecture.data.source.AppRepository
+import com.test.data.AppRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.reactivex.android.schedulers.AndroidSchedulers

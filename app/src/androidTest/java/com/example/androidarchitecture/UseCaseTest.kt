@@ -1,6 +1,6 @@
 package com.example.androidarchitecture
 
-import com.example.androidarchitecture.domain.GetMovieUseCase
+import com.test.domain.GetMovieUseCase
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking

@@ -2,14 +2,13 @@ package com.example.androidarchitecture.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.androidarchitecture.data.source.local.AppDatabase
-import com.example.androidarchitecture.data.source.local.LogDao
+import com.test.data.local.AppDatabase
+import com.test.data.local.LogDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.testing.HiltAndroidTest
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)

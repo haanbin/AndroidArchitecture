@@ -14,7 +14,6 @@ class RandomMainViewModel @ViewModelInject constructor(
     private val saveLogUseCase: SaveLogUseCase
 ) : BaseViewModel() {
 
-    private val queryMap = HashMap<String, String>()
     private val _randomEvent = MutableLiveData<Event<Unit>>()
     val randomEvent: LiveData<Event<Unit>>
         get() = _randomEvent

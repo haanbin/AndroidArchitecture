@@ -1,7 +1,6 @@
 package com.example.androidarchitecture.ui.log
 
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityLogBinding
@@ -21,11 +20,14 @@ class LogActivity : BaseActivity<ActivityLogBinding, LogViewModel>(R.layout.acti
 
     private fun onObserve() {
         viewModel.run {
-            showToastEvent.observe(this@LogActivity, Observer { event ->
-                event.getContentIfNotHandled()?.let {
-                    showToast(it)
+            showToastEvent.observe(
+                this@LogActivity,
+                { event ->
+                    event.getContentIfNotHandled()?.let {
+                        showToast(it)
+                    }
                 }
-            })
+            )
         }
     }
 }

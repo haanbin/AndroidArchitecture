@@ -21,8 +21,7 @@ fun RecyclerView.setUserRecyclerViewAttr(viewModel: BaseViewModel) {
         val layoutManager = LinearLayoutManager(context)
         adapter = UserAdapter(viewModel)
         this.layoutManager = layoutManager
-        addOnScrollListener(object :
-            EndlessPageRecyclerViewScrollListener(layoutManager) {
+        addOnScrollListener(object : EndlessPageRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
                 viewModel.loadMore()
             }

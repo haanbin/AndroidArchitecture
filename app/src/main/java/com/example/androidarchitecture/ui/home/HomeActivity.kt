@@ -2,7 +2,6 @@ package com.example.androidarchitecture.ui.home
 
 import android.content.Intent
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityHomeBinding
@@ -25,26 +24,35 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
     }
 
     private fun onObserve() {
-        viewModel.randomEvent.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                Intent(this, RandomMainActivity::class.java).apply {
-                    startActivity(this)
+        viewModel.randomEvent.observe(
+            this,
+            {
+                it.getContentIfNotHandled()?.let {
+                    Intent(this, RandomMainActivity::class.java).apply {
+                        startActivity(this)
+                    }
                 }
             }
-        })
-        viewModel.movieSearchEvent.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                Intent(this, MovieSearchActivity::class.java).apply {
-                    startActivity(this)
+        )
+        viewModel.movieSearchEvent.observe(
+            this,
+            {
+                it.getContentIfNotHandled()?.let {
+                    Intent(this, MovieSearchActivity::class.java).apply {
+                        startActivity(this)
+                    }
                 }
             }
-        })
-        viewModel.logEvent.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                Intent(this, LogActivity::class.java).apply {
-                    startActivity(this)
+        )
+        viewModel.logEvent.observe(
+            this,
+            {
+                it.getContentIfNotHandled()?.let {
+                    Intent(this, LogActivity::class.java).apply {
+                        startActivity(this)
+                    }
                 }
             }
-        })
+        )
     }
 }

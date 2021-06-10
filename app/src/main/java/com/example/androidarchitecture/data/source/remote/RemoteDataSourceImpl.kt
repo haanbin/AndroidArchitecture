@@ -5,9 +5,9 @@ import com.example.androidarchitecture.data.entities.NaverMovie
 import com.example.androidarchitecture.data.entities.RandomUser
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
-import retrofit2.Response
 
 @Singleton
 class RemoteDataSourceImpl @Inject constructor(private val retrofitService: RetrofitService) :

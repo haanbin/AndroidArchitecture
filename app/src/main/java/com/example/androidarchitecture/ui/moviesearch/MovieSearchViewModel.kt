@@ -31,17 +31,25 @@ class MovieSearchViewModel @ViewModelInject constructor(
     private val _openLinkEvent = MutableLiveData<Event<String>>()
     val openLinkEvent: LiveData<Event<String>> = _openLinkEvent
 
+    // two way binding
     val searchText = MutableLiveData<String>()
     private val display = 10
     private var total = 0
     private val queryMap = HashMap<String, String>().apply {
-        put("display", display.toString())
-        put("start", "1")
-        put("query", "")
+        put(DISPLAY, display.toString())
+        put(START, "1")
+        put(QUERY, "")
     }
     private val headerMap = HashMap<String, String>().apply {
         put("X-Naver-Client-Id", BuildConfig.clientId)
         put("X-Naver-Client-Secret", BuildConfig.clientSecret)
+    }
+    val loadMoreTest = {
+        val start = queryMap[START]?.toInt() ?: 0
+        if ((start + display) <= total) {
+            queryMap[START] = (start + display).toString()
+            getNaverMovie()
+        }
     }
 
     fun searchClicked() {
@@ -51,7 +59,7 @@ class MovieSearchViewModel @ViewModelInject constructor(
                 return
             }
             _movieItems.value = listOf()
-            queryMap["query"] = it
+            queryMap[QUERY] = it
             saveKeywordLog(it)
             getNaverMovie()
         }
@@ -61,21 +69,13 @@ class MovieSearchViewModel @ViewModelInject constructor(
         _openLinkEvent.value = Event(link)
     }
 
-    val loadMoreTest = {
-        val start = queryMap["start"]?.toInt() ?: 0
-        if ((start + display) <= total) {
-            queryMap["start"] = (start + display).toString()
-            getNaverMovie()
-        }
-    }
-
     fun loadMore() {
-        val start = queryMap["start"]?.toInt()
+        val start = queryMap[START]?.toInt()
         start?.let {
             if ((it + display) > total) {
                 return
             }
-            queryMap["start"] = (it + display).toString()
+            queryMap[START] = (it + display).toString()
             getNaverMovie()
         }
     }
@@ -123,4 +123,11 @@ class MovieSearchViewModel @ViewModelInject constructor(
     }
 
     private suspend fun getMovieCall() = getMovieUseCase(headerMap, queryMap)
+
+    companion object {
+
+        const val START = "start"
+        const val QUERY = "query"
+        const val DISPLAY = "display"
+    }
 }

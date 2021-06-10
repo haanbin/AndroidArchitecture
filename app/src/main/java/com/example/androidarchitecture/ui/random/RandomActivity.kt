@@ -1,7 +1,6 @@
 package com.example.androidarchitecture.ui.random
 
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityRandomBinding
@@ -22,11 +21,14 @@ class RandomActivity :
     }
 
     private fun onObserve() {
-        viewModel.toastMessage.observe(this, Observer { event ->
-            event.getContentIfNotHandled()?.let {
-                showToast(it)
+        viewModel.toastMessage.observe(
+            this,
+            { event ->
+                event.getContentIfNotHandled()?.let {
+                    showToast(it)
+                }
             }
-        })
+        )
     }
 
     override fun onResume() {

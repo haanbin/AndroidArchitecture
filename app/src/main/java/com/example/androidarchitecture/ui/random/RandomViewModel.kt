@@ -43,20 +43,23 @@ class RandomViewModel @ViewModelInject constructor(
                 getUserFormat(it.results[0])
             }
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                _userFormat.value = it
-            }, {
-                _toastMessage.value = Event(it.message.toString())
-                Log.e(RandomViewModel::javaClass.javaClass.name, it.message.toString())
-            }).addTo(compositeDisposable)
+            .subscribe(
+                {
+                    _userFormat.value = it
+                },
+                {
+                    _toastMessage.value = Event(it.message.toString())
+                    Log.e(RandomViewModel::javaClass.javaClass.name, it.message.toString())
+                }
+            ).addTo(compositeDisposable)
     }
 
     private fun getUserFormat(result: Result): UserFormat {
         val name = "name : ${result.name.first} ${result.name.last}"
         val age = "age : ${result.dob.age}"
         val location = "location : ${result.location.street.number}, " +
-                "${result.location.street.name}, ${result.location.city}, " +
-                "${result.location.state}, ${result.location.country}"
+            "${result.location.street.name}, ${result.location.city}, " +
+            "${result.location.state}, ${result.location.country}"
         return UserFormat(
             result.login.uuid,
             name,

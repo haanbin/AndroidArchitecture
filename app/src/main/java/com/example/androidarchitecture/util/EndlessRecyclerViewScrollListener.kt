@@ -28,7 +28,7 @@ internal class EndlessRecyclerViewScrollListener(
             defaultVisibleThreshold * layoutManager.spanCount
         }
         else -> {
-            throw Exception()
+            throw Exception("Need LayoutManager")
         }
     }
 
@@ -41,7 +41,7 @@ internal class EndlessRecyclerViewScrollListener(
                 layoutManager.findLastVisibleItemPositions(null).maxOrNull() ?: 0
             }
             else -> {
-                throw Exception()
+                throw Exception("Need LayoutManager")
             }
         }
 

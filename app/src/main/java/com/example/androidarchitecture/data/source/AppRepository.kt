@@ -6,9 +6,9 @@ import com.example.androidarchitecture.data.entities.RandomUser
 import com.example.androidarchitecture.data.source.local.LocalDataSource
 import com.example.androidarchitecture.data.source.remote.RemoteDataSource
 import io.reactivex.Single
+import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
-import retrofit2.Response
 
 @Singleton
 class AppRepository @Inject constructor(

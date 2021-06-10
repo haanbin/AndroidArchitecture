@@ -18,7 +18,6 @@ class UsersViewModel @ViewModelInject constructor(
     private val getRandomUsersUseCase: GetRandomUsersUseCase
 ) : BaseViewModel() {
 
-    private val queryMap = HashMap<String, String>()
     private val _userFormats = MutableLiveData<List<UserFormat>>()
     val userFormats: LiveData<List<UserFormat>>
         get() = _userFormats
@@ -27,7 +26,12 @@ class UsersViewModel @ViewModelInject constructor(
     val toastMessage: LiveData<Event<String>>
         get() = _toastMessage
 
+    private val queryMap = HashMap<String, String>()
     private val randomUrl = BuildConfig.randomUrl
+    val loadMoreTest = {
+        queryMap["page"] = ((queryMap["page"]?.toInt() ?: 0) + 1).toString()
+        loadRandomUser()
+    }
 
     init {
         with(queryMap) {
@@ -38,11 +42,6 @@ class UsersViewModel @ViewModelInject constructor(
     }
 
     fun start() {
-        loadRandomUser()
-    }
-
-    val loadMoreTest = {
-        queryMap["page"] = ((queryMap["page"]?.toInt() ?: 0) + 1).toString()
         loadRandomUser()
     }
 
@@ -66,22 +65,25 @@ class UsersViewModel @ViewModelInject constructor(
                     }.toList()
             }
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                val itemList = (_userFormats.value ?: listOf()).toMutableList()
-                itemList.addAll(it)
-                _userFormats.value = itemList
-            }, {
-                _toastMessage.value = Event(it.message.toString())
-                Log.e(RandomViewModel::javaClass.javaClass.name, it.message.toString())
-            }).addTo(compositeDisposable)
+            .subscribe(
+                {
+                    val itemList = (_userFormats.value ?: listOf()).toMutableList()
+                    itemList.addAll(it)
+                    _userFormats.value = itemList
+                },
+                {
+                    _toastMessage.value = Event(it.message.toString())
+                    Log.e(RandomViewModel::javaClass.javaClass.name, it.message.toString())
+                }
+            ).addTo(compositeDisposable)
     }
 
     private fun getUserFormat(result: Result): UserFormat {
         val name = "name : ${result.name.first} ${result.name.last}"
         val age = "age : ${result.dob.age}"
         val location = "location : ${result.location.street.number}, " +
-                "${result.location.street.name}, ${result.location.city}, " +
-                "${result.location.state}, ${result.location.country}"
+            "${result.location.street.name}, ${result.location.city}, " +
+            "${result.location.state}, ${result.location.country}"
         return UserFormat(
             result.login.uuid,
             name,

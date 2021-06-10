@@ -3,7 +3,6 @@ package com.example.androidarchitecture.ui.moviesearch
 import android.content.Intent
 import android.net.Uri
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.androidarchitecture.BR
 import com.example.androidarchitecture.R
 import com.example.androidarchitecture.databinding.ActivityMovieSearchBinding
@@ -23,20 +22,29 @@ class MovieSearchActivity :
     }
 
     private fun onObserve() {
-        viewModel.clearEvent.observe(this, Observer { event ->
-            event.getContentIfNotHandled()?.let {
-                (binding.recyclerViewMovieSearch.adapter as MovieAdapter).clearItem()
+        viewModel.clearEvent.observe(
+            this,
+            { event ->
+                event.getContentIfNotHandled()?.let {
+                    (binding.recyclerViewMovieSearch.adapter as MovieAdapter).clearItem()
+                }
             }
-        })
-        viewModel.showToastEvent.observe(this, Observer { event ->
-            event.getContentIfNotHandled()?.let {
-                showToast(it)
+        )
+        viewModel.showToastEvent.observe(
+            this,
+            { event ->
+                event.getContentIfNotHandled()?.let {
+                    showToast(it)
+                }
             }
-        })
-        viewModel.openLinkEvent.observe(this, Observer { event ->
-            event.getContentIfNotHandled()?.let {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it)))
+        )
+        viewModel.openLinkEvent.observe(
+            this,
+            { event ->
+                event.getContentIfNotHandled()?.let {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it)))
+                }
             }
-        })
+        )
     }
 }

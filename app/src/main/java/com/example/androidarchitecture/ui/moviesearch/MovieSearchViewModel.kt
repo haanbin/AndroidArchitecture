@@ -1,6 +1,5 @@
 package com.example.androidarchitecture.ui.moviesearch
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -10,11 +9,14 @@ import com.example.androidarchitecture.data.entities.MovieItem
 import com.example.androidarchitecture.domain.GetMovieUseCase
 import com.example.androidarchitecture.domain.SaveLogUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MovieSearchViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MovieSearchViewModel @Inject constructor(
     private val getMovieUseCase: GetMovieUseCase,
     private val saveLogUseCase: SaveLogUseCase
 ) :

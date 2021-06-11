@@ -1,7 +1,6 @@
 package com.example.androidarchitecture.ui.random
 
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.androidarchitecture.BuildConfig
@@ -10,10 +9,13 @@ import com.example.androidarchitecture.data.entities.Result
 import com.example.androidarchitecture.data.entities.UserFormat
 import com.example.androidarchitecture.domain.GetRandomUsersUseCase
 import com.example.androidarchitecture.ui.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
+import javax.inject.Inject
 
-class RandomViewModel @ViewModelInject constructor(
+@HiltViewModel
+class RandomViewModel @Inject constructor(
     private val getRandomUsersUseCase: GetRandomUsersUseCase
 ) : BaseViewModel() {
 
